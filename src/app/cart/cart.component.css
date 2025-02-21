@@ -1,0 +1,101 @@
+.Basket-Container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+    background-image: url("https://restaurant.stepprojects.ge/images/cart_bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.table {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.table-row {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+}
+.table-row:last-child {
+    margin-bottom: 40px;
+}
+.hover:hover{
+    background-color: #E0E0E0;
+}
+
+.table-header {
+    font-weight: bold;
+    background: #f4f4f4;
+}
+
+.table-cell {
+    padding: 10px;
+    text-align: center;
+}
+.product{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.product div{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.table-cell:last-child {
+    border-right: none;
+}
+
+.product {
+    flex: 60%;
+    text-align: left;
+}
+
+.quantity, .price, .total {
+    flex: 13.3%;
+    align-self: center;
+}
+
+.fa-xmark:hover{
+    color: red;
+    cursor: pointer;
+}
+.btn-total{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+/* Quantity Buttons */
+.quantity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.btn {
+    width: 25px;
+    height: 25px;
+    border: none;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    line-height: 25px;
+}
+
+.btn:hover {
+    background: #0056b3;
+}
+
+.qty {
+    min-width: 20px;
+    text-align: center;
+    display: inline-block;
+}

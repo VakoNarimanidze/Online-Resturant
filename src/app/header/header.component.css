@@ -1,0 +1,100 @@
+header{
+    background-image: url('https://restaurant.stepprojects.ge/images/inner_banner.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 40vh;
+}
+.top-nav{
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+header nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    cursor: pointer;
+}
+ul{
+    display: flex;
+    color: white;
+    align-items: center;
+    gap: 50px;
+}
+ul li{
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+ul div{
+    display: flex;
+    gap: 10px;
+}
+.arrow-right {
+    width: 0; 
+    height: 0; 
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid red;
+    position: absolute;
+    right: -10px;
+  }
+  .cart{
+    background-color: red;
+    padding: 5px 25px;
+    border-radius: 5px;
+    position: relative;
+  }
+  .cartHover:hover .scooter{
+    animation-name: scooterAnimation;
+    animation-duration: 3s;
+  }
+
+  @keyframes scooterAnimation {
+    0% {transform: translateX(0);}
+    100%{transform: translateX(30px);}
+  }
+  @keyframes after {
+    0% { left: -60px; }
+    100% { left: 0; }
+  }
+  @keyframes pizza{
+    0% {
+        transform: translateY(50px);
+    }
+    100% {transform: translateY(10px);}
+  }
+  
+  .home {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .home::after {
+    background: #ffcc00;
+    content: "";
+    width: 50%;
+    height: 3px;
+    bottom: 10px;
+    left: -60px; 
+    position: absolute;
+  }
+  
+  .home:hover::after {
+    animation: after 1s forwards; 
+  }
+  .pizza{
+    transform: translateY(50px);
+    
+    transition: 5s;
+  }
+  .home:hover .pizza{
+    animation: pizza 1s forwards;
+  }
+  header h1{
+    margin-top: 100px;
+    text-align: center;
+    color: white;
+  }

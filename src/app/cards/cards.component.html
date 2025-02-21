@@ -1,0 +1,20 @@
+<app-header></app-header>
+<app-categories (FilteredItems)="updateCards($event)" (showAllItems)="showAll($event)" ></app-categories>
+<section class="cards-container">
+  <app-filter (filterChanged)="applyFilter($event)"></app-filter>
+  <div *ngFor="let item of allProducs; let i = index">
+    <div class="food-card">
+      <img [src]="item.image" alt="Delicious Dish" class="food-image">
+      <div class="food-info">
+        <h2 class="food-name">{{item.name}}</h2>
+        <p class="food-price">${{item.price}}</p>
+        <div class="food-tags">
+          <span class="spicy">🌶️ spiciness {{item.spiciness}}</span>
+          <span class="nuts">🥜 {{item.nuts ? "თხილიანი" : 'უთხილო'}}</span>
+          <span class="vegetarian"> {{item.vegeterian ? "ვეგანური 🌱" : "არავეგანური"}}</span>
+        </div>
+        <button (click)="addToBasket(item.id,item.price)">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</section>

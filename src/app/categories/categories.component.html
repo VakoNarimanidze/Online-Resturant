@@ -1,0 +1,10 @@
+<h2>Categories</h2>
+<ul>
+    <li [class.active]="activeCategory == 0" (click)="showAll()">All</li>
+    @for (item of categories; track $index) {
+      <li [class.active]="activeCategory== item.id" (click)="filterCards(item.id)">
+        {{item.name}}
+      </li>
+    }
+    </ul>
+    

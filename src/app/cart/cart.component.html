@@ -1,0 +1,38 @@
+<app-header></app-header>
+<div class="Basket-Container">
+<h2>Cart</h2>
+<div class="table">
+    <div class="table-row table-header">
+        <div class="table-cell product">Product</div>
+        <div class="table-cell quantity">Quantity</div>
+        <div class="table-cell price">Price</div>
+        <div class="table-cell total">Total</div>
+    </div>
+
+    @for (item of BasketItems; track $index) {
+    <div class="table-row hover" >
+        
+        <div class="table-cell product">
+            <div>
+                <i (click)="removeItem(item.product.id)" class="fas fa-xmark"></i>
+                <i class="fas fa-pen"></i>
+            </div>
+            <img width="80" [src]="item.product.image" alt="">
+             {{item.product.name}} </div>
+             <div class="table-cell quantity">
+                <button class="btn decrease" (click)="decreaseQuantity(item)">-</button>
+                <span class="qty">{{ item.quantity }}</span>
+                <button class="btn increase" (click)="increaseQuantity(item)">+</button>
+              </div>
+        <div class="table-cell price">${{item.price}}</div>
+        <div class="table-cell total">$ {{ item.quantity * item.price }}</div>
+    </div>
+}
+
+<div class="btn-total">
+<p>Total: ${{totalPrice}}</p>
+<button>PROCEED TO CHECKOUT</button>
+</div>
+</div>
+
+</div>
