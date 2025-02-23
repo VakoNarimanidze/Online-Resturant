@@ -5,19 +5,21 @@
     </div>
     <div>
         <div class="form">
-            <div>
+            <div class="spiciness">
                 <label for="spiciness">Spiciness : </label>
-                <input type="range" [(ngModel)]="spiciness" value="-1" min="-1" max="4" step="1">
+                <span>{{ spiciness === -1 ? 'Not Chosen' : spiciness }}</span> 
+                <br>
+                <input type="range" [(ngModel)]="spiciness" min="-1" max="4" value="-1">
             </div>
-            <div>
+            <div class="form-group">
                 <input [(ngModel)]="nuts" type="checkbox"  >
                 <label for="noNuts"> No Nuts</label>
             </div>
-            <div>
+            <div class="form-group">
                 <input [(ngModel)]="vegeterian" type="checkbox">
                 <label for="vegetarian"> Vegetarian Only</label>
             </div>
-            <div>
+            <div class="btns">
                 <button type="reset" (click)="resetFilter()">Reset</button>
                 <button type="submit" (click)="applyFilter()">APPLY FILTER</button>
             </div>

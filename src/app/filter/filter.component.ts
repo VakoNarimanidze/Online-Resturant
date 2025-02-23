@@ -11,25 +11,26 @@ export class FilterComponent {
   constructor(public api:LogicsService){}
   @Output() filterChanged = new EventEmitter<any>();
 
-  public spiciness :string =""
+  public spiciness :number = -1
   public nuts:string =""
   public vegeterian:string =""
 
   applyFilter() {
-    let sicxare;
-    if(this.spiciness =="-1"){
-      sicxare =""
-    }   
-    else{
-      sicxare = this.spiciness
-    }
-    this.api.getFiltered(sicxare,this.nuts,this.vegeterian).subscribe(data =>{
-      this.filterChanged.emit(data)
-      // console.log(data);
-      
-    })
+    let sicxare = this.spiciness === -1 ? "" : this.spiciness.toString();
+    this.api.getFiltered(sicxare, this.nuts, this.vegeterian).subscribe(data => {
+      this.filterChanged.emit(data);
+    });
   }
+  
 
   resetFilter() {
+    this.spiciness = -1
+    this.nuts =""
+    this.vegeterian = ""
+    this.applyFilter()
+
+    setTimeout(() => {
+      this.applyFilter(); 
+    });
   }
 }

@@ -6,7 +6,6 @@ import { CommonModule } from '@angular/common';
 import { Products } from '../products';
 import { FilterComponent } from "../filter/filter.component";
 import { HeaderComponent } from "../header/header.component";
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-cards',

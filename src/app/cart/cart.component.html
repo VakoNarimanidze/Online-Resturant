@@ -28,6 +28,9 @@
         <div class="table-cell total">$ {{ item.quantity * item.price }}</div>
     </div>
 }
+@empty {
+    <h1> Basket is empty</h1>
+}
 
 <div class="btn-total">
 <p>Total: ${{totalPrice}}</p>
