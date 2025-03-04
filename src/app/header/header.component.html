@@ -2,15 +2,14 @@
 <header>
     <div class="top-nav">
         <nav>
-            <img src="logoWhite.png" alt="">
+            <img routerLink="/" src="logoWhite.png" alt="">
             <ul>
                 <li routerLink="/" class="home">Home <img class="pizza" width="50" src="cheesy-pizza.png" alt=""></li>
                 <div routerLink="/cart" class="cartHover"> 
                     <li  class="cart">Cart <div class="arrow-right"></div></li>
-                    <img class="scooter" width="40" src="scooter.png" alt="">
+                    <p class="basketCount">{{basketCount}}</p>
                 </div>
             </ul>
         </nav>
     </div>
-    <h1>Fast and efficient, online ordering you must try.</h1>
 </header>

@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { Products } from '../products';
 import { FilterComponent } from "../filter/filter.component";
 import { HeaderComponent } from "../header/header.component";
+import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-cards',
@@ -22,11 +23,7 @@ export class CardsComponent implements OnInit {
   constructor(private logicServices: LogicsService) {}
 
   ngOnInit(): void {
-    this.logicServices.getCards().subscribe((res) => {
-      this.allProducs = res;
-      console.log(res);
-      
-    });
+    this.logicServices.getCards().subscribe(res => {this.allProducs = res});
   }
 
   updateCards(FilteredItems: any) {
@@ -40,19 +37,14 @@ export class CardsComponent implements OnInit {
  
   applyFilter(filterChanged: any) {
    this.allProducs = filterChanged
-  console.log(filterChanged);
-  
-
   }
-  
-  
-
-  
 
   addToBasket(productId: number,itemPrice:number) {
     this.logicServices.addToBasket(productId,itemPrice);
-    console.log(productId,itemPrice);
-    
+  }
+
+  stringify(item:Products){
+    return JSON.stringify(item)
   }
 
 }

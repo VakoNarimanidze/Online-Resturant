@@ -1,7 +1,8 @@
-<app-header></app-header>
+<div class="container">
+    <app-header></app-header>
 <div class="Basket-Container">
-<h2>Cart</h2>
-<div class="table">
+<h1>Cart</h1>
+<div class="table" [class]="{disabled: BasketItems.length === 0}">
     <div class="table-row table-header">
         <div class="table-cell product">Product</div>
         <div class="table-cell quantity">Quantity</div>
@@ -28,14 +29,17 @@
         <div class="table-cell total">$ {{ item.quantity * item.price }}</div>
     </div>
 }
-@empty {
-    <h1> Basket is empty</h1>
-}
 
 <div class="btn-total">
 <p>Total: ${{totalPrice}}</p>
 <button>PROCEED TO CHECKOUT</button>
 </div>
 </div>
+<div *ngIf="BasketItems.length === 0" class="empty">
+    <img src="	https://onlinerestaurant-seven.vercel.app/assets/emptycart.png" alt="">
+    <h2>Your cart is empty...</h2>
+    <button (click)="goToHomepage()">Go to Homepage</button>
+</div> 
 
+</div>
 </div>

@@ -10,6 +10,17 @@ header{
     justify-content: center;
     padding-top: 20px;
 }
+.fixed-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px; 
+  transition: all 0.3s ease-in-out;
+  background-color: #190B02;
+  z-index: 1000;
+}
 header nav{
     display: flex;
     justify-content: space-between;
@@ -42,12 +53,12 @@ ul div{
     right: -10px;
   }
   .cart{
+    position: relative;
     background-color: red;
     padding: 5px 25px;
     border-radius: 5px;
-    position: relative;
   }
-  .cartHover:hover .scooter{
+  .cartHover:hover .cart::after{
     animation-name: scooterAnimation;
     animation-duration: 3s;
   }
@@ -98,3 +109,31 @@ ul div{
     text-align: center;
     color: white;
   }
+  .cart::after{
+    position: absolute;
+    content: "";
+    background: url(https://restaurant.stepprojects.ge/images/sprit.png) no-repeat -7px -6px;
+    width: 37px;
+    height: 26px;
+    top: 0;
+    right: -41px;
+    bottom: 0;
+    transition: right 1sease-in-out;
+  }
+  .cartHover {
+    position: relative;
+  }
+  .basketCount {
+    position: absolute;
+    left: -10px;
+    top: -10px;
+    width: 20px; 
+    height: 20px;
+    line-height: 20px; 
+    text-align: center;
+    border-radius: 50%;
+    background-color: #ffcc00;
+    color: sienna;
+    font-size: 12px;
+    font-weight: bold;
+}

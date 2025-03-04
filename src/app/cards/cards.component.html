@@ -1,4 +1,6 @@
-<app-header></app-header>
+<div class="container">
+  <app-header></app-header>
+  <h1>Fast and efficient, online ordering you must try.</h1>
 <app-categories (FilteredItems)="updateCards($event)" (showAllItems)="showAll($event)"></app-categories>
 
 <section class="cards-container">
@@ -8,7 +10,7 @@
       <div class="food-card">
         <div class="food-image-wrapper">
           <img [src]="item.image" alt="Delicious Dish" class="food-image">
-          <p class="food-price">Price: ${{item.price}}</p> 
+          <p class="food-price">${{item.price}}</p> 
           <span class="spicy">🌶️ Spiciness {{item.spiciness}}</span>
         </div>
         <div class="food-info">
@@ -22,9 +24,14 @@
               vegeterian
             </span>
           </div>
-          <button (click)="addToBasket(item.id, item.price)">Add to Cart</button>
+          <div class="btns">
+            <button (click)="addToBasket(item.id, item.price)">Add to Cart</button>
+            <button [routerLink]="['/details']" [queryParams]="{data:stringify(item)}">View Details</button>
+          </div>
         </div>
       </div>
     }
   </div>
 </section>
+
+</div>

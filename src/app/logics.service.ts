@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Products } from './products';
 import { Observable } from 'rxjs';
+import { CartLengthService } from './cart-length.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,9 @@ export class LogicsService {
   private UpdatebasketAPI = "https://restaurant.stepprojects.ge/api/Baskets/UpdateBasket"
  
   
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private cartLengthService: CartLengthService) {
+    this.updateCartLength();
+   }
 
   getCards() {
     return this.http.get<Products[]>(this.cardsAPI);
@@ -31,7 +34,11 @@ export class LogicsService {
   return this.http.get(`https://restaurant.stepprojects.ge/api/Products/GetFiltered?vegeterian=${vegeterian}&nuts=${nuts}&spiciness=${spiciness}`)
  }
  
-  
+ updateCartLength() {
+  this.getBasket().subscribe(basket => {
+    this.cartLengthService.updateCartLength(basket.length);
+  });
+}
   
 
   getBasket(): Observable<any[]> {
@@ -41,7 +48,10 @@ export class LogicsService {
   removeItems(id: number): void {
     this.http.delete(`https://restaurant.stepprojects.ge/api/Baskets/DeleteProduct/${id}`)
       .subscribe({
-        next: () => this.getBasket(),
+        next: () => {
+          this.getBasket()
+          this.updateCartLength();
+        },
         error: (error) => console.error(error)
       });
   }
@@ -62,6 +72,7 @@ export class LogicsService {
           next: (res) => {
             console.log("Updated Basket Item:", res);
             this.getBasket().subscribe(); 
+            this.updateCartLength();
           },
           error: (error) => console.error("Error updating basket:", error)
         });
@@ -75,6 +86,7 @@ export class LogicsService {
           next: (res) => {
             console.log("Added to Basket:", res);
             this.getBasket().subscribe(); 
+            this.updateCartLength();
           },
           error: (error) => console.error(" Error adding to basket:", error)
         });
@@ -96,9 +108,14 @@ export class LogicsService {
       next: () => {
         console.log(`Updated basket item ${productId}: Quantity ${newQuantity}, Total ${total}`);
         this.getBasket().subscribe(); 
+        this.updateCartLength();
       },
       error: (error) => console.log("Error updating basket:", error)
     });
+  }
+  
+  getProductById(id:number){
+    return this.http.get( `https://restaurant.stepprojects.ge/api/Products/GetAll/${id}`)
   }
   
   }

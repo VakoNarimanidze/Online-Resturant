@@ -1,4 +1,5 @@
-<h2>Categories</h2>
+<div class="container">
+  <h2>Categories</h2>
 <ul>
     <li [class.active]="activeCategory == 0" (click)="showAll()">All</li>
     @for (item of categories; track $index) {
@@ -7,4 +8,5 @@
       </li>
     }
     </ul>
+</div>
     

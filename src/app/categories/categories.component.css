@@ -1,10 +1,14 @@
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 h2 {
     text-align: center;
-    font-size: 36px;
-    color: #d2691e; /* Warm food color */
+    font-size: 50px;
+    color: #E63946; 
     margin: 40px 0;
     font-weight: bold;
-    font-family: 'Poppins', sans-serif;
 }
 
 ul {
@@ -21,7 +25,7 @@ ul li {
     padding: 10px 20px;
     background: #ffcc80;
     color: #6d4c41;
-    font-size: 16px;
+    font-size: 13px;
     font-weight: bold;
     border-radius: 8px;
     cursor: pointer;

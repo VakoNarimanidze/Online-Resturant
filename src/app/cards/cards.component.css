@@ -1,17 +1,27 @@
 .cards-container {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 20px;
     padding: 10px;
     max-width: 1200px;
     margin: 40px auto;
+}
+.container{
+    position: relative;
+    overflow: hidden;
+}
+.container h1{
+    position: absolute;
+    transform: translate(60%, -100px);
+    color: white;
+    z-index: 100;
 }
 
 .cards-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-    width: 80%;
+    width: 100%;
 }
 
 .food-card {
@@ -28,7 +38,7 @@
 
 .food-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.2);
 }
 
 .food-image {
@@ -58,9 +68,10 @@
     background-color: yellow;
     padding: 5px 10px;
     border-radius: 5px;
+    border-bottom-left-radius: 15px;
     position: absolute;
-    top: -5px;
-    right: 5px;
+    top: -10px;
+    right: 0;
 }
 
 .food-tags {
@@ -82,10 +93,12 @@
 .spicy {
     position: absolute;
     bottom: 5px;
-    left: 5px;
+    left: 0;
     background: #ff6347;
     padding: 5px 10px;
     border-radius: 5px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
     color: white;
 }
 
@@ -96,13 +109,19 @@
 .vegetarian {
     color: black;
 }
+.btns{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
 
 button {
-    padding: 10px 30px;
+    padding: 10px 15px;
     color: white;
     background-color: #e63946;
     border: none;
-    margin-top: 20px;
+    margin-top: 40px;
+    font-size: 14px;
 }
 .fa-circle-check{
     color: green;
