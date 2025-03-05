@@ -9,7 +9,8 @@
     background-size: cover;
 }
 .container{
-    position: relative;;
+    position: relative;
+    overflow: hidden;
 }
 .container h1{
     position: absolute;
@@ -151,4 +152,10 @@
 }
 .disabled{
     display: none;
+}
+
+@media (max-width:670px){
+    .table{
+        width: 100%;
+    }
 }

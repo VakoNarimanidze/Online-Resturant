@@ -8,9 +8,9 @@
 }
 
 /* Responsive spacing for mobile screens */
-@media (max-width: 768px) {
+@media (max-width: 881px) {
     .filter-container {
-        max-width: 90%;
+        width: 100%;
         padding: 15px;
     }
 }
@@ -160,9 +160,6 @@ button[type="submit"]:hover {
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-    .filter-container {
-        max-width: 90%;
-    }
 
     .btns {
         flex-direction: column;

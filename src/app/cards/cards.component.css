@@ -12,7 +12,8 @@
 }
 .container h1{
     position: absolute;
-    transform: translate(60%, -100px);
+    left:30%;
+    top: 200px;
     color: white;
     z-index: 100;
 }
@@ -130,21 +131,44 @@ button {
     color: red;
 }
 
-/* Responsive Styles */
+
 @media (max-width: 1024px) {
     .cards-grid {
-        grid-template-columns: repeat(2, 1fr); /* Two columns on tablets */
+        grid-template-columns: repeat(2, 1fr); 
         gap: 20px;
+    }
+    .container h1{
+        left: 15%;
+        top: 200px;
     }
 }
 
-@media (max-width: 768px) {
-    .cards-grid {
-        grid-template-columns: repeat(1, 1fr); /* Single column on small screens */
-        gap: 15px;
-    }
+@media (max-width: 881px) {
 
     .food-card {
-        max-width: 100%; /* Allow cards to be full-width */
+        max-width: 100%; 
+    }
+    .cards-container{
+        flex-direction: column;
+    }
+}
+@media (max-width:780px){
+    .container h1{
+        left: 10%;
+        font-size: 30px;
+    }
+}
+@media (max-width: 608px) {
+
+    .food-card {
+        max-width: 100%; 
+    }
+    .cards-grid{
+        grid-template-columns: repeat(1, 1fr); 
+        gap: 15px;
+    }
+    .container h1{
+        left: 5%;
+        font-size: 25px;
     }
 }
