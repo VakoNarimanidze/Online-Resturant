@@ -2,7 +2,12 @@
 <header>
     <div class="top-nav">
         <nav>
-            <img routerLink="/" src="logoWhite.png" alt="">
+            <div style="display: flex; gap: 20px; align-items: center;">
+                <img class="logo" routerLink="/" src="logoWhite.png" alt="">
+                @if (isLoading) {
+                    <app-loader></app-loader>
+                }
+            </div>
             <ul>
                 <li routerLink="/" class="home">Home <img class="pizza" width="50" src="cheesy-pizza.png" alt=""></li>
                 <div routerLink="/cart" class="cartHover"> 

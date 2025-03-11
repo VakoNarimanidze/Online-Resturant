@@ -23,7 +23,15 @@
                     Vegetarian
                 </span>
             </div>
-            <button (click)="addToBasket(product.id, product.price)" class="btn-add-to-cart">Add to Cart</button>
+            <div>
+                <div class="quantity-container">
+                    <label for="number" class="quantity-label">Enter Quantity :</label>
+                    <input type="number" [(ngModel)]="quantity" min="1" id="number" class="quantity-input" />
+                  </div>
+                  
+                <button (click)="addToBasket(product.id, product.price, quantity)" class="btn-add-to-cart">Add to Cart</button>
+              </div>
+              
         </div>
     </div>
 </div>

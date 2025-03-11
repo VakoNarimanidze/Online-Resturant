@@ -56,13 +56,17 @@ export class LogicsService {
       });
   }
   
-  addToBasket(productId: number, itemPrice: number) {
+  addToBasket(productId: number, itemPrice: number, quantity: number) {
+    console.log('Adding to basket:', productId, itemPrice, quantity);  
+  
     this.getBasket().subscribe((basket: any[]) => {
       let existingItem = basket.find(item => item.product.id === productId);
   
       if (existingItem) {
-        const newQuantity = existingItem.quantity + 1;
+        const newQuantity = existingItem.quantity + quantity;  
         const updatedPrice = itemPrice * newQuantity;
+        
+        console.log('Existing item found. New quantity:', newQuantity, 'Updated price:', updatedPrice);
   
         this.http.put(this.UpdatebasketAPI, {
           productId: productId,
@@ -71,24 +75,26 @@ export class LogicsService {
         }).subscribe({
           next: (res) => {
             console.log("Updated Basket Item:", res);
-            this.getBasket().subscribe(); 
-            this.updateCartLength();
+            this.getBasket().subscribe();  
+            this.updateCartLength();  
           },
           error: (error) => console.error("Error updating basket:", error)
         });
-  
       } else {
+      
+        console.log('Adding new item to basket with quantity:', quantity);
+  
         this.http.post("https://restaurant.stepprojects.ge/api/Baskets/AddToBasket", {
           productId: productId,
-          quantity: 1,
-          price: itemPrice
+          quantity: quantity, 
+          price: itemPrice * quantity 
         }).subscribe({
           next: (res) => {
             console.log("Added to Basket:", res);
             this.getBasket().subscribe(); 
-            this.updateCartLength();
+            this.updateCartLength(); 
           },
-          error: (error) => console.error(" Error adding to basket:", error)
+          error: (error) => console.error("Error adding to basket:", error)
         });
       }
     });

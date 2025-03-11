@@ -39,8 +39,8 @@ export class CardsComponent implements OnInit {
    this.allProducs = filterChanged
   }
 
-  addToBasket(productId: number,itemPrice:number) {
-    this.logicServices.addToBasket(productId,itemPrice);
+  addToBasket(productId: number,itemPrice:number,quantity:number = 1) {
+    this.logicServices.addToBasket(productId,itemPrice,quantity);
   }
 
   stringify(item:Products){

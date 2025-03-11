@@ -32,7 +32,7 @@
 
 <div class="btn-total">
 <p>Total: ${{totalPrice}}</p>
-<button>PROCEED TO CHECKOUT</button>
+<button (click)="checkOut()">PROCEED TO CHECKOUT</button>
 </div>
 </div>
 <div *ngIf="BasketItems.length === 0" class="empty">

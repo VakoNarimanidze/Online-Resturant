@@ -69,4 +69,7 @@ export class CartComponent implements OnInit {
   goToHomepage(){
       window.location.href="/"
   }
+  checkOut(){
+    alert(`Total Price is ${this.totalPrice}$`)
+  }
 }

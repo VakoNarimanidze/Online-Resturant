@@ -148,3 +148,12 @@ ul div{
     margin-right: 70px;
   }
 }
+
+@media (max-width:400px){
+  .logo{
+    width: 100px;
+  }
+  nav{
+    gap: 20px;
+  }
+}
